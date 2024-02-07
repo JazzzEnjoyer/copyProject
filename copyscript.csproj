@@ -1,0 +1,23 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
+  <!-- Определение параметра, который будет передан в .proj файл -->
+  <PropertyGroup>
+    <CopyFolder Condition="'$(CopyFolderParam)' == 'Folder1'">путь_к_папке_1</CopyFolder>
+    <CopyFolder Condition="'$(CopyFolderParam)' == 'Folder2'">путь_к_папке_2</CopyFolder>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <!-- Задача для копирования папки -->
+  <Target Name="CopyFolder">
+    <ItemGroup>
+      <SourceFolder Include="$(CopyFolder)" />
+    </ItemGroup>
+    <ItemGroup>
+      <DestinationFolder Include="путь_к_целевой_папке\" />
+    </ItemGroup>
+    <Copy SourceFiles="@(SourceFolder)" DestinationFolder="@(DestinationFolder)" />
+  </Target>
+</Project>
+#TTT FUCK YOU
